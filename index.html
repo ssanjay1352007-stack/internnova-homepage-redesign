@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>InternNova – Redesigned Homepage</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#10113a;--bg:#f6f5fc;--card:#fff;--text:#2b2c4d;--mute:#5d5f85;--violet:#5a3cf4;--amber:#ffb21e;--line:#dedcf0;--hero:#10113a;--on-hero:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#f0efff;--bg:#0c0d28;--card:#15163d;--text:#cfd0ee;--mute:#9a9cc8;--violet:#8b73ff;--line:#2a2b5c;--hero:#07081c}}
+:root[data-theme="dark"]{--ink:#f0efff;--bg:#0c0d28;--card:#15163d;--text:#cfd0ee;--mute:#9a9cc8;--violet:#8b73ff;--line:#2a2b5c;--hero:#07081c}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--text);font:400 1rem/1.65 "Public Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",Georgia,sans-serif;color:var(--ink);line-height:1.1;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:84px 0}
+h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:14px;max-width:18ch}
+.lead{color:var(--mute);max-width:60ch;margin-bottom:40px}
+.btn{display:inline-block;padding:13px 24px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid transparent;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.p{background:var(--amber);color:#10113a}
+.btn.g{border-color:rgba(255,255,255,.4);color:#fff}
+header{position:sticky;top:0;z-index:20;background:var(--hero);padding-top:env(safe-area-inset-top,0px)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font:800 1.4rem "Bricolage Grotesque",sans-serif;color:#fff;text-decoration:none}
+.logo b{color:var(--amber)}
+nav ul{display:flex;gap:26px;list-style:none;padding:0}
+nav a{color:#d9d8f5;text-decoration:none;font-size:.95rem}
+nav a:hover{color:var(--amber)}
+.menu{display:none;background:none;border:0;color:#fff;font-size:1.7rem;cursor:pointer}
+.hero{background:var(--hero);color:var(--on-hero);padding:70px 0 90px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{color:#fff;font-size:clamp(2.5rem,6vw,4.4rem);margin-bottom:20px}
+.hero p{color:#c9c8ee;max-width:46ch;margin-bottom:30px}
+.hero .btn+.btn{margin-left:10px}
+.orbit{position:relative;aspect-ratio:1;max-width:420px;width:100%;margin:auto}
+.orbit .core{position:absolute;inset:34%;border-radius:50%;background:var(--amber);color:#10113a;display:grid;place-items:center;font:800 1.2rem "Bricolage Grotesque",sans-serif;text-align:center;line-height:1.1}
+.ring{position:absolute;border:1px dashed rgba(255,255,255,.3);border-radius:50%;animation:spin 40s linear infinite}
+.ring.r1{inset:14%}.ring.r2{inset:0;animation-duration:60s;animation-direction:reverse}
+.ring span{position:absolute;background:var(--violet);color:#fff;font-size:.78rem;font-weight:600;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.ring.r1 span:nth-child(1){top:-14px;left:40%}.ring.r1 span:nth-child(2){bottom:8%;right:-10px}.ring.r1 span:nth-child(3){bottom:8%;left:-14px}
+.ring.r2 span:nth-child(1){top:6%;right:4%}.ring.r2 span:nth-child(2){bottom:-14px;left:35%}.ring.r2 span:nth-child(3){top:30%;left:-18px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ring span{animation:spin 40s linear infinite reverse}
+.grid{display:grid;gap:20px}
+.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}
+.card h3{font-size:1.25rem;margin-bottom:8px}
+.card p{color:var(--mute);font-size:.95rem}
+.prog{border-radius:24px;padding:32px}
+.prog .t{font:800 2.6rem "Bricolage Grotesque",sans-serif;color:var(--violet)}
+.prog.feat{background:var(--violet);border-color:var(--violet)}
+.prog.feat h3,.prog.feat .t{color:#fff}.prog.feat p,.prog.feat li{color:#e8e3ff}
+.prog ul{padding-left:18px;margin:14px 0 0;color:var(--mute);font-size:.95rem}
+.dom{display:flex;align-items:center;gap:12px;font-weight:600;color:var(--ink);padding:18px 20px;border-radius:14px;background:var(--card);border:1px solid var(--line);transition:border-color .2s}
+.dom:hover{border-color:var(--violet)}
+.dom i{font-style:normal;font-size:1.4rem}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.steps{list-style:none;padding:0;counter-reset:s}
+.steps li{counter-increment:s;padding:0 0 22px 56px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:38px;height:38px;border-radius:50%;background:var(--violet);color:#fff;display:grid;place-items:center;font-weight:700}
+.steps li::after{content:"";position:absolute;left:18px;top:42px;bottom:4px;width:2px;background:var(--line)}
+.steps li:last-child::after{display:none}
+.steps b{color:var(--ink);display:block}
+.band{background:var(--hero);color:#fff}
+.band h2{color:#fff}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.stats b{display:block;font:800 clamp(2.2rem,5vw,3.4rem) "Bricolage Grotesque",sans-serif;color:var(--amber)}
+.stats span{color:#c9c8ee}
+.quote{font-size:1.02rem;color:var(--text)}
+.who{margin-top:16px;font-weight:600;color:var(--ink);font-size:.92rem}
+.who small{display:block;font-weight:400;color:var(--mute)}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px}
+summary{cursor:pointer;font-weight:600;color:var(--ink)}
+details p{margin-top:10px;color:var(--mute)}
+.cta{text-align:center}
+.cta .box{background:var(--violet);border-radius:28px;padding:64px 24px;color:#fff}
+.cta h2{color:#fff;margin:0 auto 14px;max-width:20ch}
+.cta p{color:#e8e3ff;margin-bottom:26px}
+footer{background:var(--hero);color:#b9b8e0;padding:56px 0 30px;font-size:.92rem}
+footer .grid{grid-template-columns:2fr 1fr 1fr 1fr;margin-bottom:30px}
+footer h3{color:#fff;font-size:1rem;margin-bottom:10px}
+footer ul{list-style:none;padding:0;line-height:2}
+footer a{text-decoration:none}footer a:hover{color:var(--amber)}
+.copy{border-top:1px solid rgba(255,255,255,.15);padding-top:20px;text-align:center}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+@media (max-width:900px){.g4,.stats{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:1fr}.hero .wrap,.split{grid-template-columns:1fr}footer .grid{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.menu{display:block}nav ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--hero);padding:10px 20px 20px;gap:14px}nav ul.open{display:flex}.g2{grid-template-columns:1fr}.hero .btn+.btn{margin:10px 0 0}section{padding:60px 0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a class="logo" href="#top">Intern<b>Nova</b></a>
+  <nav aria-label="Main">
+   <button class="menu" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+   <ul id="links">
+    <li><a href="#about">About</a></li><li><a href="#programs">Programs</a></li><li><a href="#domains">Domains</a></li>
+    <li><a href="#mentorship">Mentorship</a></li><li><a href="#stories">Stories</a></li><li><a href="#faq">FAQ</a></li>
+    <li><a href="#apply" style="color:var(--amber);font-weight:600">Apply now</a></li>
+   </ul>
+  </nav>
+ </div>
+</header>
+
+<main id="top">
+<section class="hero" style="padding-bottom:90px">
+ <div class="wrap">
+  <div>
+   <h1>Your first real project starts here.</h1>
+   <p>InternNova connects students with guided, hands-on internships in web, data, design and more. Build work you can show, learn from mentors, and earn a certificate.</p>
+   <a class="btn p" href="#apply">Apply for an internship</a><a class="btn g" href="#programs">See programs</a>
+  </div>
+  <div class="orbit" aria-hidden="true">
+   <div class="ring r1"><span>Web Dev</span><span>Data</span><span>Design</span></div>
+   <div class="ring r2"><span>AI / ML</span><span>Marketing</span><span>Cyber</span></div>
+   <div class="core">Your<br>project</div>
+  </div>
+ </div>
+</section>
+
+<section id="about"><div class="wrap split">
+ <div><h2>Learn by building, not by watching.</h2>
+  <p class="lead" style="margin-bottom:0">InternNova is an internship platform for students and fresh graduates. Every intern gets a real task, a mentor to review it, and a portfolio piece at the end. No prior experience needed, just curiosity and time.</p></div>
+ <ol class="steps">
+  <li><b>Choose a domain</b>Pick the field you want to grow in.</li>
+  <li><b>Work on live tasks</b>Weekly assignments based on real-world projects.</li>
+  <li><b>Get reviewed</b>Mentors give feedback on every submission.</li>
+  <li><b>Earn your certificate</b>Finish the program and add it to your portfolio.</li>
+ </ol>
+</div></section>
+
+<section id="programs" style="background:var(--card)"><div class="wrap">
+ <h2>Pick a program that fits your schedule.</h2><p class="lead">All programs are remote and flexible, so you can learn alongside college.</p>
+ <div class="grid g3">
+  <div class="card prog"><div class="t">1 month</div><h3>Starter</h3><p>A quick, focused start.</p><ul><li>2 guided tasks</li><li>Mentor feedback</li><li>Completion certificate</li></ul></div>
+  <div class="card prog feat"><div class="t">2 months</div><h3>Builder</h3><p>Our most popular choice.</p><ul><li>Weekly tasks and one mini project</li><li>Live workshops</li><li>Certificate and recommendation</li></ul></div>
+  <div class="card prog"><div class="t">3 months</div><h3>Professional</h3><p>For a portfolio-ready project.</p><ul><li>Real-world project work</li><li>1-on-1 mentor sessions</li><li>Certificate, letter and portfolio review</li></ul></div>
+ </div>
+</div></section>
+
+<section id="domains"><div class="wrap">
+ <h2>Eight domains, one place.</h2><p class="lead">Choose the track that matches your goals.</p>
+ <div class="grid g4">
+  <div class="dom"><i>&#128187;</i>Web Development</div><div class="dom"><i>&#128202;</i>Data Science</div>
+  <div class="dom"><i>&#129302;</i>AI &amp; Machine Learning</div><div class="dom"><i>&#127912;</i>UI/UX Design</div>
+  <div class="dom"><i>&#128241;</i>App Development</div><div class="dom"><i>&#128274;</i>Cyber Security</div>
+  <div class="dom"><i>&#128227;</i>Digital Marketing</div><div class="dom"><i>&#9729;</i>Cloud &amp; DevOps</div>
+ </div>
+</div></section>
+
+<section style="background:var(--card)"><div class="wrap">
+ <h2>Why students choose InternNova.</h2><p class="lead">Everything is built to get you job-ready.</p>
+ <div class="grid g3">
+  <div class="card"><h3>Real projects</h3><p>Tasks modelled on actual client work, not textbook exercises.</p></div>
+  <div class="card"><h3>Flexible and remote</h3><p>Learn at your own pace from anywhere.</p></div>
+  <div class="card"><h3>Verified certificates</h3><p>Recognised proof of your skills and effort.</p></div>
+ </div>
+</div></section>
+
+<section id="mentorship"><div class="wrap split">
+ <div><h2>Mentors who review your work.</h2>
+  <p class="lead">Learning sticks when someone looks at what you made. Industry mentors comment on your code and designs, answer questions and help you plan next steps.</p>
+  <a class="btn p" href="#apply">Join a cohort</a></div>
+ <div class="grid g2">
+  <div class="card"><h3>Weekly reviews</h3><p>Clear feedback on every task.</p></div>
+  <div class="card"><h3>Doubt sessions</h3><p>Ask questions live.</p></div>
+  <div class="card"><h3>Career guidance</h3><p>Resume and portfolio tips.</p></div>
+  <div class="card"><h3>Peer community</h3><p>Learn with other interns.</p></div>
+ </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+ <h2>Workshops that go beyond the tasks.</h2>
+ <p class="lead" style="color:#c9c8ee">Short live sessions on Git and GitHub, building a portfolio, interview preparation and the latest tools. Recordings stay available for every intern.</p>
+ <div class="stats" style="margin-top:20px">
+  <div><b data-n="10000" data-s="+">0</b><span>Interns trained</span></div>
+  <div><b data-n="8">0</b><span>Domains</span></div>
+  <div><b data-n="50" data-s="+">0</b><span>Mentors</span></div>
+  <div><b data-n="95" data-s="%">0</b><span>Would recommend us</span></div>
+ </div>
+</div></section>
+
+<section id="stories"><div class="wrap">
+ <h2>Hear from our interns.</h2><p class="lead">Sample testimonials. Replace with real ones before launch.</p>
+ <div class="grid g3">
+  <div class="card"><p class="quote">"I built my first full website during the internship. The mentor feedback made the difference."</p><div class="who">Aarav K.<small>Web Development intern</small></div></div>
+  <div class="card"><p class="quote">"The weekly tasks felt like real work. I now have projects to show in interviews."</p><div class="who">Meera S.<small>Data Science intern</small></div></div>
+  <div class="card"><p class="quote">"Flexible schedule and friendly mentors. I could balance it with my classes."</p><div class="who">Rahul D.<small>UI/UX intern</small></div></div>
+ </div>
+</div></section>
+
+<section id="faq" style="background:var(--card)"><div class="wrap" style="max-width:800px">
+ <h2>Questions, answered.</h2>
+ <details><summary>Who can apply?</summary><p>Any student or recent graduate interested in learning. No experience is needed.</p></details>
+ <details><summary>Is the internship remote?</summary><p>Yes. You can join from anywhere and work at your own pace.</p></details>
+ <details><summary>Will I get a certificate?</summary><p>Yes. You get a certificate after completing your tasks and final submission.</p></details>
+ <details><summary>How long does it take each week?</summary><p>Around 6 to 8 hours, depending on the program.</p></details>
+</div></section>
+
+<section id="apply" class="cta"><div class="wrap"><div class="box">
+ <h2>Ready to build something real?</h2><p>Applications are open for the next batch.</p>
+ <a class="btn p" href="https://internnova.co.in" target="_blank" rel="noopener">Apply on InternNova</a>
+</div></div></section>
+</main>
+
+<footer><div class="wrap">
+ <div class="grid">
+  <div><a class="logo" href="#top">Intern<b>Nova</b></a><p style="margin-top:10px;max-width:30ch">Real projects, real mentors, real skills.</p></div>
+  <div><h3>Explore</h3><ul><li><a href="#about">About</a></li><li><a href="#programs">Programs</a></li><li><a href="#domains">Domains</a></li></ul></div>
+  <div><h3>Support</h3><ul><li><a href="#faq">FAQ</a></li><li><a href="#apply">Apply</a></li><li><a href="#stories">Stories</a></li></ul></div>
+  <div><h3>Connect</h3><ul><li><a href="#">LinkedIn</a></li><li><a href="#">Instagram</a></li><li><a href="#">Email us</a></li></ul></div>
+ </div>
+ <div class="copy">&copy; 2026 InternNova. Redesign concept by Sanjay S.</div>
+</div></footer>
+
+<script>
+var b=document.querySelector('.menu'),l=document.getElementById('links');
+b.addEventListener('click',function(){var o=l.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+l.addEventListener('click',function(e){if(e.target.tagName==='A'){l.classList.remove('open');b.setAttribute('aria-expanded',false)}});
+function count(el){var n=+el.dataset.n,s=el.dataset.s||'',t=0,step=Math.max(1,n/60);var i=setInterval(function(){t+=step;if(t>=n){t=n;clearInterval(i)}el.textContent=Math.floor(t).toLocaleString()+s},20)}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.querySelectorAll('[data-n]').forEach(count);io.unobserve(e.target)}})},{threshold:.3});
+document.querySelectorAll('.stats').forEach(function(s){io.observe(s)});
+</script>
+</body>
+</html>
